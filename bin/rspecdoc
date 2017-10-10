@@ -9,7 +9,8 @@ if not File.exist?('database_config.yml')
   exit
 end
 
-if ARGV.size < 1 || ARGV[1] != 'build_models'
+if ARGV.size < 1 || ARGV[0] != 'build_models'
+  puts ARGV
   puts USAGE
   exit 
 end

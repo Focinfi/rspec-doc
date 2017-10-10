@@ -1,7 +1,9 @@
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 Gem::Specification.new do |s|
   s.name               = "rspec-doc"
   s.version            = "0.1.1"
-  s.default_executable = "rspecdoc"
   s.license            = 'MIT'
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -9,6 +11,7 @@ Gem::Specification.new do |s|
   s.date = %q{2017-10-10}
   s.description = %q{Make markdown for rspec}
   s.email = %q{focinfi@gmail.com}
+  s.executables        = ["rspecdoc"]
   s.files = [
     "Rakefile", 
     "lib/rspec-doc.rb",  
