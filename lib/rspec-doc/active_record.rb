@@ -52,7 +52,7 @@ private
     # select the target obj item 
     expectation_source.gsub!(model, 'model')
     expectation_source.gsub!('be_', 'be ')
-    expectation_items = expectation_source.lines do |line| 
+    expectation_source.lines do |line| 
       key, matcher, value = nil
       /expect\(model\.(?<key>.*)\)\.(?<is>to|not_to)[\s+\(](?<matcher>.*)[\s+\(](?<value>.*)[\,\)\s+\n]/ =~ "#{line.strip}\n"
       next unless key && is && matcher && value

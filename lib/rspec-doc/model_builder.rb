@@ -5,6 +5,8 @@ require 'erb'
 require 'rare_map'
 require 'active_record' 
 
+# override the RareMap::SchemaParser.parse_schema
+# for new schema.rb format
 module RareMap
   # RareMap::SchemaParser parses schema.rb into Table.
   module SchemaParser
