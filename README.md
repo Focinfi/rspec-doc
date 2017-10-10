@@ -61,7 +61,7 @@ end
 
 run the rspec command:
 
-`rspec metaweather_spec.rb`
+`rspec metaweather_spec.rb  --require 'rspec-doc' --format RSpecDoc::MarkdownFormatter`
 
 outputs:
 
@@ -150,7 +150,7 @@ end
 
 run the rspec command:
 
-`rspec dog_spec.rb`
+`rspec dog_spec.rb --require 'rspec-doc' --format RSpecDoc::MarkdownFormatter`
 
 outputs:
 
