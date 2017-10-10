@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'rspec-doc'
+
+USAGE = 'usage: rspecdoc build_models' 
+
+if not File.exist?('database_config.yml')
+  puts 'need database_config.yml'
+  exit
+end
+
+if ARGV.size < 1 || ARGV[1] != 'build_models'
+  puts USAGE
+  exit 
+end
+
+RSpecDoc::ModelBuilder.build_models
+
