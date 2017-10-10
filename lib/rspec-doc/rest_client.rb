@@ -35,26 +35,26 @@ private
 
     if params[:headers][:params]
       lines << "**Query String Parameters**" 
-      lines << MarkdownUtil.kv_table(params[:headers][:params])
+      lines << RSpecDoc::MarkdownUtil.kv_table(params[:headers][:params])
     end
 
     params[:headers].delete(:params)
     if params[:headers].size > 0
       lines << "**Request Headers**" 
-      lines << MarkdownUtil.http_headers_table(params[:headers])
+      lines << RSpecDoc::MarkdownUtil.http_headers_table(params[:headers])
     end
 
     if params[:payload]
       lines << "**Request Body**" 
-      lines << MarkdownUtil.json_block(params[:payload])
+      lines << RSpecDoc::MarkdownUtil.json_block(params[:payload])
     end
 
     lines << "**Response Headers**"
-    lines << MarkdownUtil.http_headers_table(params[:response].headers)
+    lines << RSpecDoc::MarkdownUtil.http_headers_table(params[:response].headers)
 
     if params[:response].headers[:content_type].to_s.include? 'json'
       lines << "**Response Body**"
-      lines << MarkdownUtil.json_block(params[:response].body)
+      lines << RSpecDoc::MarkdownUtil.json_block(params[:response].body)
     end
     
     lines

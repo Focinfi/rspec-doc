@@ -1,4 +1,6 @@
 require 'active_record'
+require 'method_source'
+
 require_relative 'markdown_util'
 
 module RSpecDoc::ActiveRecord  
@@ -42,7 +44,7 @@ private
   def self.make_db_assertion_md(expectation_source)
     expectation_source = expectation_source.lstrip
     # get the target obj name 
-    /^DocDB\.describe[\(\s+]example,\s+(?<model>.*)[\)\s+]do/ =~ expectation_source
+    /\.describe[\(\s+]example,\s+(?<model>.*)[\)\s+]do/ =~ expectation_source
     return nil unless model
     
     model.chomp!(')')    
@@ -66,6 +68,6 @@ private
     end
 
     # build markdown table 
-    MarkdownUtil.table(['Column', 'Assertion', 'Value'], items)
+    RSpecDoc::MarkdownUtil.table(['Column', 'Assertion', 'Value'], items)
   end 
 end
